@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "streams": "Streams",
+    "events": "Events",
+    "gallery": "Gallery",
+    "about": "About"
+  },
+  "loginPage": {
+    "welcomeMessage": "Welcome to MOSTICK!",
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "noAccount": "I don't have an account",
+    "create": "Create",
+    "forgotPassword": "Forgot password?"
+  }
+}

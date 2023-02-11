@@ -1,0 +1,60 @@
+<tui-theme-night></tui-theme-night>
+<div class="login-form-container">
+  <tui-island>
+<!--    <h3>{{'loginPage.welcomeMessage' | transloco}}</h3>-->
+    <form
+      class="b-form"
+      [formGroup]="form"
+    >
+      <tui-input formControlName="email"
+                 tuiTextfieldSize="m">
+        {{'loginPage.email' | transloco}}
+        <input
+          tuiTextfield
+          type="email"
+        />
+      </tui-input>
+      <tui-input-password formControlName="password"
+                          tuiTextfieldSize="m"
+                          class="tui-space_top-2"
+                          [tuiTextfieldLabelOutside]="true">
+        {{'loginPage.password' | transloco}}
+        <input
+          autocomplete="false"
+          tuiTextfield
+        />
+      </tui-input-password>
+    </form>
+    <div class="row no-account">
+      <div class="div">
+        {{'loginPage.noAccount' | transloco}}
+      </div>
+      <p>
+        <a
+          href="#"
+          tuiLink
+          mode="positive">
+          {{'loginPage.create' | transloco}}
+        </a>
+      </p>
+    </div>
+    <div class="forgot-password">
+      <p>
+        <a
+          href="#"
+          tuiLink
+          mode="negative">
+          {{'loginPage.forgotPassword' | transloco}}
+        </a>
+      </p>
+    </div>
+    <button tuiButton
+            type="button"
+            appearance="flat"
+            size="m"
+            class="tui-island__footer-button"
+    >
+      {{'loginPage.login' | transloco}}
+    </button>
+  </tui-island>
+</div>

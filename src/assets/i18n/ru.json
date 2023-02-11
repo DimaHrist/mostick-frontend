@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "streams": "Стримы",
+    "events": "События",
+    "gallery": "Галерея",
+    "about": "О нас"
+  },
+  "loginPage": {
+    "welcomeMessage": "Добро пожаловать на MOSTICK!",
+    "login": "Войти",
+    "email": "Почта",
+    "password": "Пароль",
+    "noAccount": "У меня нет аккаунта",
+    "create": "Создать",
+    "forgotPassword": "Забыли пароль?"
+  }
+}

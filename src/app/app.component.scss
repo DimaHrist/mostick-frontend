@@ -1,0 +1,129 @@
+@import "src/styles/colors";
+.t-flag {
+  width: 1.75rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+:host {
+  width: 100%;
+  height: 100%;
+  min-width: 400px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 60px;
+  //background-color: $dark-shades;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  user-select: none;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    width: 700px;
+
+    img {
+      margin-right: 16px;
+      width: 700px;
+    }
+  }
+}
+
+.header__settings {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.language-picker {
+  width: 150px;
+}
+
+.header__radio{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 100%;
+}
+
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+input[type=radio]:checked + label{
+  font-weight: 600;
+  background: $light-grey;
+  transition: .2s;
+}
+
+.radio-group {
+  user-select: none;
+  border: solid 2px $light-grey;
+  display: inline-block;
+  margin-right: 16px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+label {
+  color: black;
+  //font-family: ;
+  font-weight: 300;
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 15px;
+  font-size: 12px;
+}
+
+.header__navigation {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.navigation {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-self: flex-end;
+  list-style: none;
+  width: 55%;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+
+  &__item {
+    height: fit-content;
+    color: black;
+    cursor: pointer;
+    padding: 0 8px;
+    transition: .2s;
+    font-size: 18px;
+  }
+
+  &__item-active {
+    height: fit-content;
+    color: $white;
+  }
+
+  &__item:focus {
+    height: fit-content;
+    outline: none;
+  }
+
+  &__item:hover {
+    //color: $light-main-color;
+  }
+}

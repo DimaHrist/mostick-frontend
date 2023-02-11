@@ -1,0 +1,54 @@
+<tui-theme-night></tui-theme-night>
+<tui-root tuiMode="onDark">
+<div class="header">
+  <div class="header__title">
+    <img src="./assets/img/white-logo.png" width="700px" alt="">
+  </div>
+
+  <div class="header__navigation">
+    <ul class="navigation">
+      <li
+        [class.navigation__item-active]="currentRoute === '/' || currentRoute === '/streams'"
+        class="navigation__item"
+        routerLink="/streams"
+        (click)="setCurrentRoute('/streams')">
+        {{'navigation.streams' | transloco}}
+      </li>
+      <li
+        [class.navigation__item-active]="currentRoute === '/events'"
+        class="navigation__item"
+        routerLink="/events"
+        (click)="setCurrentRoute('/events')">
+        {{'navigation.events' | transloco}}
+      </li>
+      <li
+        [class.navigation__item-active]="currentRoute === '/gallery'"
+        class="navigation__item"
+        routerLink="/gallery"
+        (click)="setCurrentRoute('/gallery')">
+        {{'navigation.gallery' | transloco}}
+      </li>
+      <li
+        [class.navigation__item-active]="currentRoute === '/about'"
+        class="navigation__item"
+        routerLink="/about"
+        (click)="setCurrentRoute('/about')">
+        {{'navigation.about' | transloco}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="header__settings">
+    <div class="header__radio">
+      <div class="radio-group">
+        <input type="radio" name="language" value="ru" id="ru" (click)="changeLanguage('ru')"/>
+        <label for="ru">RU</label>
+        <input type="radio" name="language" value="eng" id="eng" checked="checked" (click)="changeLanguage('en')"/>
+        <label for="eng">ENG</label>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+</tui-root>
