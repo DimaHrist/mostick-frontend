@@ -1,1 +1,38 @@
-<p>streams works!</p>
+<!--<div class="stream">-->
+<!--&lt;!&ndash;  <iframe width="560" height="500" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>&ndash;&gt;-->
+<!--<video></video>-->
+<!--</div>-->
+
+<tui-theme-night></tui-theme-night>
+<div class="streams-list-container">
+  <tui-island>
+    <section class="content">
+      <div class="box">
+        <tui-scrollbar>
+          <div class="items-container">
+            <nav
+              tuiTabs
+              vertical="left"
+              class="left">
+              <button *ngFor="let stream of streamsList"
+                      tuiTab
+                      type="button"
+                      appearance="flat">
+                {{stream.title}}
+              </button>
+            </nav>
+          </div>
+        </tui-scrollbar>
+      </div>
+      <div class="stream">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/byeoGmc2RYE" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+
+      </div>
+    </section>
+
+
+  </tui-island>
+</div>

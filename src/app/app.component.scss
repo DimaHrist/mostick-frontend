@@ -175,3 +175,16 @@ label {
     padding: 2px 8px;
   }
 }
+
+.router-outlet {
+  width: 100%;
+  height: calc(100% - 90px);
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 0px)  {
+  .router-outlet {
+    width: 100%;
+    height: calc(100% - 75px);
+    max-height: 100%;
+  }
+}

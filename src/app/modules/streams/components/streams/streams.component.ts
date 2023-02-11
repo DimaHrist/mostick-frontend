@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class StreamsComponent {
 
+  public streamsList = [
+    {
+      title: 'Stream 1',
+      link: '',
+    },
+    {
+      title: 'Stream 2',
+      link: '',
+    },
+    {
+      title: 'Stream 3',
+      link: '',
+    }
+  ]
+
 }

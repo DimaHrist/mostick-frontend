@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StreamsComponent } from './components/streams/streams.component';
 import { StreamsRoutingModule } from './streams-routing.module';
+import { TuiButtonModule, TuiScrollbarModule, TuiThemeNightModule } from '@taiga-ui/core';
+import { TuiIslandModule, TuiTabsModule } from '@taiga-ui/kit';
 
 
 
@@ -11,7 +13,12 @@ import { StreamsRoutingModule } from './streams-routing.module';
   ],
   imports: [
     CommonModule,
-    StreamsRoutingModule
+    StreamsRoutingModule,
+    TuiThemeNightModule,
+    TuiIslandModule,
+    TuiTabsModule,
+    TuiScrollbarModule,
+    TuiButtonModule
   ]
 })
 export class StreamsModule { }
