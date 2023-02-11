@@ -5,7 +5,7 @@ import {
   TuiAlertModule,
   TUI_SANITIZER,
   TuiDataListModule,
-  TuiThemeNightModule, TuiModeModule, TuiPrimitiveTextfieldModule
+  TuiThemeNightModule, TuiModeModule, TuiPrimitiveTextfieldModule, TuiHostedDropdownModule, TuiButtonModule
 } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -19,6 +19,7 @@ import { TuiSelectModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslocoRootModule } from './transloco-root.module';
 import { ErrorInterceptor } from './services/error.interceptor';
+import { TuiActiveZoneModule } from '@taiga-ui/cdk';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,9 @@ import { ErrorInterceptor } from './services/error.interceptor';
     TuiPrimitiveTextfieldModule,
     TuiModeModule,
     TranslocoRootModule,
+    TuiHostedDropdownModule,
+    TuiButtonModule,
+    TuiActiveZoneModule,
   ],
   providers: [
     {provide: TUI_SANITIZER, useClass: NgDompurifySanitizer},

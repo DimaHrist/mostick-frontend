@@ -1,54 +1,75 @@
 <tui-theme-night></tui-theme-night>
 <tui-root tuiMode="onDark">
-<div class="header">
-  <div class="header__title">
-    <img src="./assets/img/white-logo.png" width="700px" alt="">
-  </div>
+  <div class="header">
+    <div class="header__title">
+      <img src="./assets/img/white-logo.png" alt="">
+    </div>
 
-  <div class="header__navigation">
-    <ul class="navigation">
-      <li
-        [class.navigation__item-active]="currentRoute === '/' || currentRoute === '/streams'"
-        class="navigation__item"
-        routerLink="/streams"
-        (click)="setCurrentRoute('/streams')">
-        {{'navigation.streams' | transloco}}
-      </li>
-      <li
-        [class.navigation__item-active]="currentRoute === '/events'"
-        class="navigation__item"
-        routerLink="/events"
-        (click)="setCurrentRoute('/events')">
-        {{'navigation.events' | transloco}}
-      </li>
-      <li
-        [class.navigation__item-active]="currentRoute === '/gallery'"
-        class="navigation__item"
-        routerLink="/gallery"
-        (click)="setCurrentRoute('/gallery')">
-        {{'navigation.gallery' | transloco}}
-      </li>
-      <li
-        [class.navigation__item-active]="currentRoute === '/about'"
-        class="navigation__item"
-        routerLink="/about"
-        (click)="setCurrentRoute('/about')">
-        {{'navigation.about' | transloco}}
-      </li>
-    </ul>
-  </div>
+    <div class="header__navigation">
+      <ul class="navigation">
+        <li *ngFor="let item of menuItems"
+            [class.navigation__item-active]="currentRoute === item.link"
+            class="navigation__item"
+            [routerLink]="item.link"
+            (click)="setCurrentRoute(item.link)">
+          {{item.title | transloco | uppercase}}
+        </li>
+      </ul>
+    </div>
 
-  <div class="header__settings">
-    <div class="header__radio">
-      <div class="radio-group">
-        <input type="radio" name="language" value="ru" id="ru" (click)="changeLanguage('ru')"/>
-        <label for="ru">RU</label>
-        <input type="radio" name="language" value="eng" id="eng" checked="checked" (click)="changeLanguage('en')"/>
-        <label for="eng">ENG</label>
+    <div class="header__settings">
+      <tui-hosted-dropdown #dropdown
+                           [content]="content"
+                           [(open)]="dropdownOpen"
+                           class="dropdown-menu">
+        <button tuiIconButton
+                appearance="flat"
+                icon="tuiIconMenuLarge"
+                type="button"
+                size="s"
+                [pseudoHover]="dropdown.open || null"
+        ></button>
+      </tui-hosted-dropdown>
+
+      <ng-template
+        #content
+        let-activeZone>
+        <tui-data-list tuiDataListDropdownManager
+                       [tuiActiveZoneParent]="activeZone"
+                       size="l">
+          <button *ngFor="let item of menuItems"
+                  tuiOption
+                  [routerLink]="item.link"
+                  (click)="selectOption(item.title)">
+            {{ item.title | transloco }}
+          </button>
+        </tui-data-list>
+      </ng-template>
+
+      <div class="header__radio">
+        <div class="radio-group">
+          <input type="radio"
+                 name="language"
+                 value="ru"
+                 id="ru"
+                 (click)="changeLanguage('ru')"/>
+          <label for="ru">
+            RU
+          </label>
+          <input type="radio"
+                 name="language"
+                 value="eng"
+                 id="eng"
+                 checked="checked"
+                 (click)="changeLanguage('en')"/>
+          <label for="eng">
+            ENG
+          </label>
+        </div>
       </div>
+
     </div>
   </div>
-</div>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
 </tui-root>

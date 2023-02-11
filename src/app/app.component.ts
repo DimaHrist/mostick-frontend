@@ -8,8 +8,29 @@ import { TranslocoService } from '@ngneat/transloco';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'mostick-frontend';
+  dropdownOpen = false;
+  public menuItems = [
+    {
+      title: 'navigation.streams',
+      link: '/streams'
+    },
+    {
+      title: 'navigation.events',
+      link: '/events'
+    },
+    {
+      title: 'navigation.gallery',
+      link: '/gallery'
+    },
+    {
+      title: 'navigation.about',
+      link: '/about'
+    },
+  ]
 
+  selectOption(item: string): void {
+    this.dropdownOpen = false;
+  }
   currentRoute = '/streams';
   constructor(private translocoService: TranslocoService) {
   }

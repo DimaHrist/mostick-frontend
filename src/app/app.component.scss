@@ -14,8 +14,8 @@
 }
 
 .header {
-  height: 60px;
-  //background-color: $dark-shades;
+  height: 90px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,11 +28,12 @@
   &__title {
     display: flex;
     align-items: center;
-    width: 700px;
+    width: 40%;
 
     img {
       margin-right: 16px;
-      width: 700px;
+      width: 100%;
+      max-height: 90px;
     }
   }
 }
@@ -41,7 +42,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 30%;
+}
+
+.dropdown-menu {
+  display: none;
 }
 
 .language-picker {
@@ -53,6 +57,7 @@
   flex-direction: row;
   align-items: flex-start;
   height: 100%;
+  margin-left: 8px;
 }
 
 input[type=radio] {
@@ -71,8 +76,7 @@ input[type=radio]:checked + label{
   user-select: none;
   border: solid 2px $light-grey;
   display: inline-block;
-  margin-right: 16px;
-  border-radius: 5px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -82,15 +86,12 @@ label {
   font-weight: 300;
   display: inline-block;
   cursor: pointer;
-  padding: 5px 15px;
+  padding: 4px 15px;
   font-size: 12px;
 }
 
 .header__navigation {
-  width: 40%;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
 }
 
 .navigation {
@@ -99,7 +100,7 @@ label {
   display: flex;
   align-self: flex-end;
   list-style: none;
-  width: 55%;
+  width: auto;
   justify-content: space-between;
   align-items: center;
   user-select: none;
@@ -110,7 +111,8 @@ label {
     cursor: pointer;
     padding: 0 8px;
     transition: .2s;
-    font-size: 18px;
+    font-size: 20px;
+    white-space: nowrap;
   }
 
   &__item-active {
@@ -125,5 +127,51 @@ label {
 
   &__item:hover {
     //color: $light-main-color;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 601px)  {
+  .dropdown-menu {
+    display: block;
+  }
+
+  .header__title {
+    width: 60%;
+  }
+
+  .header__navigation {
+    display: none;
+  }
+
+  .header {
+    padding: 8px;
+    height: 75px;
+  }
+
+  label {
+    padding: 2px 8px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 0px)  {
+  .dropdown-menu {
+    display: block;
+  }
+
+  .header__title {
+    width: 60%;
+  }
+
+  .header__navigation {
+    display: none;
+  }
+
+  .header {
+    padding: 8px;
+    height: 75px;
+  }
+
+  label {
+    padding: 2px 8px;
   }
 }
