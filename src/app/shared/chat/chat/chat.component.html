@@ -1,0 +1,45 @@
+<div class="chat-container">
+  <div class="chat-container__header">
+    <h3>{{'streamPage.comments' | transloco}}</h3>
+  </div>
+
+  <tui-scrollbar class="scrollable-container">
+    <div class="chat-container__body">
+      <div
+        *ngFor="let message of messages | async"
+        class="chat-container__body__message">
+        <div class="row justify-start gap-05">
+          <span class="chat-container__body__message-author">{{message.author}}:</span>
+          <span class="chat-container__body__message-message"> {{message.message}}</span>
+        </div>
+      </div>
+    </div>
+  </tui-scrollbar>
+
+  <div class="chat-container__input-row">
+    <tui-input [formControl]="comment"
+               tuiTextfieldSize="m">
+      {{'streamPage.comment' | transloco}}
+      <input
+        tuiTextfield
+        type="text"
+      />
+    </tui-input>
+<!--    <tui-text-area-->
+<!--      [formControl]="comment"-->
+<!--      tuiTextfieldSize="m">-->
+<!--      <textarea-->
+<!--        tuiTextfield></textarea>-->
+<!--      {{'streamPage.comment' | transloco}}-->
+<!--    </tui-text-area>-->
+    <div class="chat-container__input-row__send-button">
+      <button
+        size="xs"
+        tuiButton
+        type="button"
+        appearance="icon"
+        icon="tuiIconSend">
+      </button>
+    </div>
+  </div>
+</div>
