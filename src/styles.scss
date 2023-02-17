@@ -32,3 +32,18 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+.justify-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.gap-05 {
+  display: flex;
+  gap: .5rem;
+}
+
+.gap-1 {
+  display: flex;
+  gap: 1rem;
+}

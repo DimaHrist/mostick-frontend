@@ -4,6 +4,7 @@ import { StreamsComponent } from './components/streams/streams.component';
 import { StreamsRoutingModule } from './streams-routing.module';
 import { TuiButtonModule, TuiScrollbarModule, TuiThemeNightModule } from '@taiga-ui/core';
 import { TuiIslandModule, TuiTabsModule } from '@taiga-ui/kit';
+import { ChatModule } from '../../shared/chat/chat.module';
 
 
 
@@ -18,7 +19,8 @@ import { TuiIslandModule, TuiTabsModule } from '@taiga-ui/kit';
     TuiIslandModule,
     TuiTabsModule,
     TuiScrollbarModule,
-    TuiButtonModule
+    TuiButtonModule,
+    ChatModule
   ]
 })
 export class StreamsModule { }

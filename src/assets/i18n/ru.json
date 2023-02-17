@@ -13,5 +13,9 @@
     "noAccount": "У меня нет аккаунта",
     "create": "Создать",
     "forgotPassword": "Забыли пароль?"
+  },
+  "streamPage": {
+    "comment": "Комментарий",
+    "comments": "Комментарии"
   }
 }

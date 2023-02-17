@@ -4,35 +4,17 @@
 <!--</div>-->
 
 <tui-theme-night></tui-theme-night>
-<div class="streams-list-container">
+<div class="stream-container">
   <tui-island>
-    <section class="content">
-      <div class="box">
-        <tui-scrollbar>
-          <div class="items-container">
-            <nav
-              tuiTabs
-              vertical="left"
-              class="left">
-              <button *ngFor="let stream of streamsList"
-                      tuiTab
-                      type="button"
-                      appearance="flat">
-                {{stream.title}}
-              </button>
-            </nav>
-          </div>
-        </tui-scrollbar>
-      </div>
-      <div class="stream">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/byeoGmc2RYE" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+    <div class="stream-container__stream">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/byeoGmc2RYE" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
 
-      </div>
-    </section>
-
-
+    <div class="stream-container__chat">
+      <app-chat></app-chat>
+    </div>
   </tui-island>
 </div>
