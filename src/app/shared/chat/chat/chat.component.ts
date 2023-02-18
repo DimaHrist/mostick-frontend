@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TuiScrollbarComponent } from '@taiga-ui/core';
 import { BehaviorSubject } from 'rxjs';
@@ -11,6 +11,38 @@ import { BehaviorSubject } from 'rxjs';
 export class ChatComponent implements AfterViewInit {
 
   public messages = new BehaviorSubject([
+    {
+      author: 'admin',
+      message: 'ban'
+    },
+    {
+      author: 'user',
+      message: 'No, thanks!'
+    },
+    {
+      author: 'admin',
+      message: 'ban'
+    },
+    {
+      author: 'user',
+      message: 'No, thanks!'
+    },
+    {
+      author: 'admin',
+      message: 'ban'
+    },
+    {
+      author: 'user',
+      message: 'No, thanks!'
+    },
+    {
+      author: 'admin',
+      message: 'ban'
+    },
+    {
+      author: 'user',
+      message: 'No, thanks!'
+    },
     {
       author: 'admin',
       message: 'ban'
@@ -134,6 +166,6 @@ export class ChatComponent implements AfterViewInit {
       })
       this.messages.next(newArr)
       this.scrollBottom()
-    }), 1000)
+    }), 2000)
   }
 }

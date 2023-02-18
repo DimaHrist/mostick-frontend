@@ -17,5 +17,8 @@
   "streamPage": {
     "comment": "Комментарий",
     "comments": "Комментарии"
+  },
+  "eventSchedule": {
+    "title": "MOSTICK расписание"
   }
 }

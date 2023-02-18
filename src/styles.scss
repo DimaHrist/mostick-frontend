@@ -1,7 +1,7 @@
 @import "src/styles/colors";
 
 body {
-  background-color: $main-grey;
+  background-color: $black;
 }
 
 html,
@@ -46,4 +46,16 @@ body {
 .gap-1 {
   display: flex;
   gap: 1rem;
+}
+
+tui-svg {
+  svg {
+    fill: none !important;
+  }
+}
+
+tui-island,
+tui-input,
+tui-dialog {
+  border-radius: .3rem !important;
 }

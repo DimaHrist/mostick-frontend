@@ -68,20 +68,20 @@ input[type=radio] {
 
 input[type=radio]:checked + label{
   font-weight: 600;
-  background: $light-grey;
+  background: $dark-grey;
   transition: .2s;
 }
 
 .radio-group {
   user-select: none;
-  border: solid 2px $light-grey;
+  border: solid 2px $dark-grey;
   display: inline-block;
-  border-radius: 12px;
+  border-radius: .3rem;
   overflow: hidden;
 }
 
 label {
-  color: black;
+  color: $white;
   //font-family: ;
   font-weight: 300;
   display: inline-block;

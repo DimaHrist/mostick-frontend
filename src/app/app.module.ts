@@ -5,7 +5,12 @@ import {
   TuiAlertModule,
   TUI_SANITIZER,
   TuiDataListModule,
-  TuiThemeNightModule, TuiModeModule, TuiPrimitiveTextfieldModule, TuiHostedDropdownModule, TuiButtonModule
+  TuiThemeNightModule,
+  TuiModeModule,
+  TuiPrimitiveTextfieldModule,
+  TuiHostedDropdownModule,
+  TuiButtonModule,
+  TuiSvgModule
 } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -13,13 +18,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TuiLanguageName } from '@taiga-ui/i18n/interfaces';
-import { tuiLanguageSwitcher } from '@taiga-ui/i18n/switch';
 import { TuiSelectModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslocoRootModule } from './transloco-root.module';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { TuiActiveZoneModule } from '@taiga-ui/cdk';
+import { EventScheduleModule } from './modules/event-schedule/event-schedule.module';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { TuiActiveZoneModule } from '@taiga-ui/cdk';
     TuiHostedDropdownModule,
     TuiButtonModule,
     TuiActiveZoneModule,
+    TuiSvgModule,
+    EventScheduleModule
   ],
   providers: [
     {provide: TUI_SANITIZER, useClass: NgDompurifySanitizer},

@@ -34,7 +34,7 @@
 
       &-message {
         color: $light-grey;
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }
@@ -64,5 +64,21 @@
 
 .scrollable-container {
   width: 100%;
-  height: 600px;
+  height: 700px;
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width: 0px)  {
+  .chat-container {
+    margin-top: 1rem;
+
+    &__input-row {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .scrollable-container {
+    width: 100%;
+    height: 300px;
+  }
 }
