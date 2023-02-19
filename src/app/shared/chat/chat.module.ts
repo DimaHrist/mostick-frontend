@@ -4,7 +4,13 @@ import { ChatComponent } from './chat/chat.component';
 import { TranslocoModule } from '@ngneat/transloco';
 import { TuiInputModule, TuiMarkerIconModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TuiButtonModule, TuiScrollbarModule, TuiSvgModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import {
+  TuiButtonModule, TuiDataListModule,
+  TuiDropdownModule,
+  TuiScrollbarModule,
+  TuiSvgModule,
+  TuiTextfieldControllerModule
+} from '@taiga-ui/core';
 
 
 
@@ -22,7 +28,9 @@ import { TuiButtonModule, TuiScrollbarModule, TuiSvgModule, TuiTextfieldControll
     TuiMarkerIconModule,
     TuiSvgModule,
     TuiScrollbarModule,
-    TuiTextAreaModule
+    TuiTextAreaModule,
+    TuiDropdownModule,
+    TuiDataListModule
   ],
   exports: [
     ChatComponent

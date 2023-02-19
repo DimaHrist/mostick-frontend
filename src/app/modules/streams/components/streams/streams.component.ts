@@ -1,25 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { WebsocketService } from '../../../../services/websocket.service';
 
 @Component({
   selector: 'app-streams',
   templateUrl: './streams.component.html',
   styleUrls: ['./streams.component.scss']
 })
-export class StreamsComponent {
+export class StreamsComponent implements OnInit {
 
-  public streamsList = [
-    {
-      title: 'Stream 1',
-      link: '',
-    },
-    {
-      title: 'Stream 2',
-      link: '',
-    },
-    {
-      title: 'Stream 3',
-      link: '',
-    }
-  ]
+  constructor(
+    private readonly wsService: WebsocketService
+  ) {
+  }
+
+  public ngOnInit(): void {
+    this.wsService.connect();
+  }
 
 }
