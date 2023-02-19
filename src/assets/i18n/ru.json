@@ -16,7 +16,9 @@
   },
   "streamPage": {
     "comment": "Комментарий",
-    "comments": "Комментарии"
+    "comments": "Комментарии",
+    "deleteMessage": "Удалить сообщение",
+    "blockUser": "Заблокировать пользователя"
   },
   "eventSchedule": {
     "title": "MOSTICK расписание"
