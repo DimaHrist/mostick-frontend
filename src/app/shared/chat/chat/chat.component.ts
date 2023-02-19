@@ -6,10 +6,13 @@ import { WebsocketService } from '../../../services/websocket.service';
 import { DestroyService } from '../../../services/destroy.service';
 
 export interface Message {
-  chat_id: number,
-  created_at: string,
-  id: number,
-  text: string
+  event_type: string,
+  payload: {
+    chat_id: number,
+    created_at: string,
+    id: number,
+    text: string
+  }
 }
 
 @Component({
@@ -59,6 +62,7 @@ export class ChatComponent implements AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
+    this.messages.subscribe(console.log)
     this.scrollBottom();
     this.messages.pipe(takeUntil(this.destroy$))
       .subscribe(() => this.scrollBottom())

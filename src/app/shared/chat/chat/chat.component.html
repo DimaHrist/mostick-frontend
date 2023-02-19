@@ -13,7 +13,7 @@
         class="chat-container__body__message">
         <div class="row justify-start gap-05">
           <span class="chat-container__body__message-author">{{'Author'}}:</span>
-          <span class="chat-container__body__message-message"> {{message.text}}</span>
+          <span class="chat-container__body__message-message"> {{message.payload.text}}</span>
         </div>
 
         <ng-template #contextMenu>
@@ -26,7 +26,7 @@
             <button
               size="s"
               tuiOption
-              (click)="deleteMessage(message.id); dropdown.toggle(false)">
+              (click)="deleteMessage(message.payload.id); dropdown.toggle(false)">
               {{ 'streamPage.deleteMessage' | transloco }}
               <tui-svg
                 class="icon"

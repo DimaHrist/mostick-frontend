@@ -11,6 +11,7 @@ import {
   TuiSvgModule,
   TuiTextfieldControllerModule
 } from '@taiga-ui/core';
+import { TranslocoRootModule } from '../../transloco-root.module';
 
 
 
@@ -30,7 +31,8 @@ import {
     TuiScrollbarModule,
     TuiTextAreaModule,
     TuiDropdownModule,
-    TuiDataListModule
+    TuiDataListModule,
+    TranslocoRootModule
   ],
   exports: [
     ChatComponent
