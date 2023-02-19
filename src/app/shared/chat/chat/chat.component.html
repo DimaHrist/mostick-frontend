@@ -4,14 +4,49 @@
   </div>
 
   <tui-scrollbar class="scrollable-container">
-    <div class="chat-container__body">
+    <div class="chat-container__body" *ngIf="messages | async">
       <div
-        *ngFor="let message of messages | async"
+        #dropdown="tuiDropdown"
+        tuiDropdownContext
+        [tuiDropdown]="contextMenu"
+        *ngFor="let message of (messages | async)"
         class="chat-container__body__message">
         <div class="row justify-start gap-05">
-          <span class="chat-container__body__message-author">{{message.author}}:</span>
-          <span class="chat-container__body__message-message"> {{message.message}}</span>
+          <span class="chat-container__body__message-author">{{'Author'}}:</span>
+          <span class="chat-container__body__message-message"> {{message.text}}</span>
         </div>
+
+        <ng-template #contextMenu>
+          <tui-data-list
+            role="menu"
+            id="context-menu"
+            tuiDataListDropdownManager
+            class="context-menu">
+
+            <button
+              size="s"
+              tuiOption
+              (click)="deleteMessage(message.id); dropdown.toggle(false)">
+              {{ 'streamPage.deleteMessage' | transloco }}
+              <tui-svg
+                class="icon"
+                src="tuiIconTrash2"
+              ></tui-svg>
+            </button>
+
+            <button
+              size="s"
+              tuiOption
+              (click)="blockUser(1); dropdown.toggle(false)">
+              {{ 'streamPage.blockUser' | transloco }}
+              <tui-svg
+                class="icon"
+                src="tuiIconUserX"
+              ></tui-svg>
+            </button>
+
+          </tui-data-list>
+        </ng-template>
       </div>
     </div>
   </tui-scrollbar>
@@ -21,25 +56,29 @@
                tuiTextfieldSize="m">
       {{'streamPage.comment' | transloco}}
       <input
+        (keyup.enter)="sendMessage()"
         tuiTextfield
         type="text"
       />
     </tui-input>
-<!--    <tui-text-area-->
-<!--      [formControl]="comment"-->
-<!--      tuiTextfieldSize="m">-->
-<!--      <textarea-->
-<!--        tuiTextfield></textarea>-->
-<!--      {{'streamPage.comment' | transloco}}-->
-<!--    </tui-text-area>-->
+    <!--    <tui-text-area-->
+    <!--      [formControl]="comment"-->
+    <!--      tuiTextfieldSize="m">-->
+    <!--      <textarea-->
+    <!--        tuiTextfield></textarea>-->
+    <!--      {{'streamPage.comment' | transloco}}-->
+    <!--    </tui-text-area>-->
     <div class="chat-container__input-row__send-button">
       <button
+        style="z-index: 100;"
         size="xs"
         tuiButton
         type="button"
         appearance="icon"
-        icon="tuiIconSend">
+        icon="tuiIconSend"
+        (click)="sendMessage()">
       </button>
     </div>
   </div>
 </div>
+
