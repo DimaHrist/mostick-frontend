@@ -1,0 +1,26 @@
+{
+  "navigation": {
+    "streams": "Streams",
+    "events": "Events",
+    "gallery": "Gallery",
+    "about": "About"
+  },
+  "loginPage": {
+    "welcomeMessage": "Welcome to MOSTICK!",
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "noAccount": "I don't have an account",
+    "create": "Create",
+    "forgotPassword": "Forgot password?"
+  },
+  "streamPage": {
+    "comment": "Comment",
+    "comments": "Comments",
+    "deleteMessage": "Delete message",
+    "blockUser": "Block user"
+  },
+  "eventSchedule": {
+    "title": "MOSTICK schedule"
+  }
+}
