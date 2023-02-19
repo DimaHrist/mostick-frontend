@@ -27,6 +27,7 @@
 
     &__message {
       margin-bottom: .3rem;
+      cursor: pointer;
 
       &-author {
         font-weight: bold;
@@ -67,10 +68,19 @@
   height: 700px;
 }
 
+.context-menu {
+  button {
+    tui-svg {
+      margin-left: .5rem !important;
+    }
+  }
+}
+
 
 @media only screen and (max-width: 1000px) and (min-width: 0px)  {
   .chat-container {
     margin-top: 1rem;
+    padding-left: 0;
 
     &__input-row {
       margin-bottom: 1rem;

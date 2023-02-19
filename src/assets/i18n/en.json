@@ -16,7 +16,9 @@
   },
   "streamPage": {
     "comment": "Comment",
-    "comments": "Comments"
+    "comments": "Comments",
+    "deleteMessage": "Delete message",
+    "blockUser": "Block user"
   },
   "eventSchedule": {
     "title": "MOSTICK schedule"

@@ -1,171 +1,67 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TuiScrollbarComponent } from '@taiga-ui/core';
-import { BehaviorSubject } from 'rxjs';
+import { takeUntil } from 'rxjs';
+import { WebsocketService } from '../../../services/websocket.service';
+import { DestroyService } from '../../../services/destroy.service';
+
+export interface Message {
+  chat_id: number,
+  created_at: string,
+  id: number,
+  text: string
+}
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss'],
+  providers: [DestroyService]
 })
 export class ChatComponent implements AfterViewInit {
 
-  public messages = new BehaviorSubject([
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-    {
-      author: 'admin',
-      message: 'ban'
-    },
-    {
-      author: 'user',
-      message: 'No, thanks!'
-    },
-  ])
+  public messages = this.wsService.messages$;
 
   @ViewChild(TuiScrollbarComponent, {read: ElementRef})
   private readonly scrollBar?: ElementRef<HTMLElement>;
 
-  public comment = new FormControl('', [Validators.required])
+  public comment = new FormControl(null, [Validators.required])
 
   public scrollBottom(): void {
     setTimeout((() => {
       if (this.scrollBar) {
-        console.log('test')
         const {nativeElement} = this.scrollBar;
         nativeElement.scrollTop = nativeElement.scrollHeight;
       }
     }), 0)
   }
 
+  constructor(
+    private readonly wsService: WebsocketService,
+    private readonly destroy$: DestroyService
+  ) {
+  }
+
+  public sendMessage(): void {
+    if (this.comment.value) {
+      this.wsService.sendMessage(this.comment.value);
+      this.comment.setValue(null)
+    }
+  }
+
+  public deleteMessage(id: number): void {
+    console.log('DELETE', 'Message id: ', id)
+    this.wsService.deleteMessage(id);
+  }
+
+  public blockUser(authorId: number): void {
+    console.log('BLOCK USER')
+  }
+
   public ngAfterViewInit(): void {
     this.scrollBottom();
-    setTimeout((() => {
-      const newArr = this.messages.getValue()
-      newArr.push({
-        author: 'JEPA',
-        message: 'No, thanks!'
-      })
-      this.messages.next(newArr)
-      this.scrollBottom()
-    }), 2000)
+    this.messages.pipe(takeUntil(this.destroy$))
+      .subscribe(() => this.scrollBottom())
+
   }
 }
