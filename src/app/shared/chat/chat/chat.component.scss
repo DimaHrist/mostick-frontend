@@ -11,12 +11,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 1rem;
   box-sizing: border-box;
 
   &__header {
+    display: flex;
+    justify-content: center;
+
     h3 {
       margin: 0;
+      padding: 1rem 0;
     }
   }
 
@@ -28,13 +31,19 @@
     &__message {
       margin-bottom: .3rem;
       cursor: pointer;
+      color: $dark-grey;
+
+      &-row {
+        display: flex;
+        justify-content: flex-start;
+      }
 
       &-author {
         font-weight: bold;
       }
 
       &-message {
-        color: $light-grey;
+        max-width: 200px;
         font-size: 13px;
       }
     }
@@ -65,7 +74,7 @@
 
 .scrollable-container {
   width: 100%;
-  height: 700px;
+  height: 650px;
 }
 
 .context-menu {
@@ -80,10 +89,19 @@
 @media only screen and (max-width: 1000px) and (min-width: 0px)  {
   .chat-container {
     margin-top: 1rem;
-    padding-left: 0;
+
+    &__header {
+      h3 {
+        padding: 0;
+      }
+    }
 
     &__input-row {
       margin-bottom: 1rem;
+    }
+
+    &__body__message-message {
+      max-width: unset;
     }
   }
 
