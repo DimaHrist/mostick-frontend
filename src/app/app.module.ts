@@ -10,7 +10,7 @@ import {
   TuiPrimitiveTextfieldModule,
   TuiHostedDropdownModule,
   TuiButtonModule,
-  TuiSvgModule
+  TuiSvgModule, TuiGroupModule
 } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -48,7 +48,8 @@ import { EventScheduleModule } from './modules/event-schedule/event-schedule.mod
     TuiButtonModule,
     TuiActiveZoneModule,
     TuiSvgModule,
-    EventScheduleModule
+    EventScheduleModule,
+    TuiGroupModule
   ],
   providers: [
     {provide: TUI_SANITIZER, useClass: NgDompurifySanitizer},
