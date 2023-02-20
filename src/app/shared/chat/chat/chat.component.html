@@ -1,6 +1,6 @@
 <div class="chat-container">
   <div class="chat-container__header">
-    <h3>{{'streamPage.comments' | transloco}}</h3>
+    <h3>Комментарии</h3>
   </div>
 
   <tui-scrollbar class="scrollable-container">
@@ -11,9 +11,9 @@
         [tuiDropdown]="contextMenu"
         *ngFor="let message of (messages | async)"
         class="chat-container__body__message">
-        <div class="row justify-start gap-05">
+        <div class="chat-container__body__message-row justify-start gap-05">
           <span class="chat-container__body__message-author">{{'Author'}}:</span>
-          <span class="chat-container__body__message-message"> {{message.payload.text}}</span>
+          <div class="chat-container__body__message-message"> {{message.payload.text}}</div>
         </div>
 
         <ng-template #contextMenu>
@@ -27,7 +27,7 @@
               size="s"
               tuiOption
               (click)="deleteMessage(message.payload.id); dropdown.toggle(false)">
-              {{ 'streamPage.deleteMessage' | transloco }}
+              Удалить сообщение
               <tui-svg
                 class="icon"
                 src="tuiIconTrash2"
@@ -38,7 +38,7 @@
               size="s"
               tuiOption
               (click)="blockUser(1); dropdown.toggle(false)">
-              {{ 'streamPage.blockUser' | transloco }}
+              Заблокировать пользователя
               <tui-svg
                 class="icon"
                 src="tuiIconUserX"
@@ -54,7 +54,7 @@
   <div class="chat-container__input-row">
     <tui-input [formControl]="comment"
                tuiTextfieldSize="m">
-      {{'streamPage.comment' | transloco}}
+      Комментарий
       <input
         (keyup.enter)="sendMessage()"
         tuiTextfield
@@ -75,8 +75,8 @@
         tuiButton
         type="button"
         appearance="icon"
-        icon="tuiIconSend"
         (click)="sendMessage()">
+        <img src="./assets/img/send-icon-dark.svg" alt="">
       </button>
     </div>
   </div>

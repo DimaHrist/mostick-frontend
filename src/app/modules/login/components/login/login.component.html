@@ -1,14 +1,14 @@
 <tui-theme-night></tui-theme-night>
 <div class="login-form-container">
   <tui-island>
-<!--    <h3>{{'loginPage.welcomeMessage' | transloco}}</h3>-->
+    <!--    <h3>{{'loginPage.welcomeMessage' | transloco}}</h3>-->
     <form
       class="b-form"
       [formGroup]="form"
     >
       <tui-input formControlName="email"
                  tuiTextfieldSize="m">
-        {{'loginPage.email' | transloco}}
+        Email
         <input
           tuiTextfield
           type="email"
@@ -18,7 +18,7 @@
                           tuiTextfieldSize="m"
                           class="tui-space_top-2"
                           [tuiTextfieldLabelOutside]="true">
-        {{'loginPage.password' | transloco}}
+        Пароль
         <input
           autocomplete="false"
           tuiTextfield
@@ -27,14 +27,14 @@
     </form>
     <div class="row no-account">
       <div class="div">
-        {{'loginPage.noAccount' | transloco}}
+        У меня нет аккаунта
       </div>
       <p>
         <a
           href="#"
           tuiLink
           mode="positive">
-          {{'loginPage.create' | transloco}}
+          Создать
         </a>
       </p>
     </div>
@@ -44,7 +44,7 @@
           href="#"
           tuiLink
           mode="negative">
-          {{'loginPage.forgotPassword' | transloco}}
+          Забыли пароль?
         </a>
       </p>
     </div>
@@ -52,9 +52,8 @@
             type="button"
             appearance="flat"
             size="m"
-            class="tui-island__footer-button"
-    >
-      {{'loginPage.login' | transloco}}
+            class="tui-island__footer-button">
+      Войти
     </button>
   </tui-island>
 </div>

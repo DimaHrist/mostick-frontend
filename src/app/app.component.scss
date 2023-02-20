@@ -1,4 +1,5 @@
 @import "src/styles/colors";
+
 .t-flag {
   width: 1.75rem;
   height: 1.25rem;
@@ -14,7 +15,7 @@
 }
 
 .header {
-  height: 90px;
+  height: 100px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -28,12 +29,13 @@
   &__title {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 15%;
+    min-width: 200px;
 
     img {
       margin-right: 16px;
-      width: 100%;
-      max-height: 90px;
+      max-height: 100px;
+      width: 200px;
     }
   }
 }
@@ -42,6 +44,31 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  .buttons-group {
+
+    button {
+      background-color: $dark-grey;
+      color: $white !important;
+      border-radius: 0;
+      font-size: 13px;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+
+    .lutra-button {
+      background-color: $lutra-yellow;
+
+      [tuiWrapper][data-appearance='outline'][data-mode='onDark'] {
+        color: $black !important;
+
+      }
+    }
+
+    .lutra-button:hover {
+      background-color: $lutra-yellow-dark;
+    }
+  }
 }
 
 .dropdown-menu {
@@ -50,44 +77,6 @@
 
 .language-picker {
   width: 150px;
-}
-
-.header__radio{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  height: 100%;
-  margin-left: 8px;
-}
-
-input[type=radio] {
-  position: absolute;
-  visibility: hidden;
-  display: none;
-}
-
-input[type=radio]:checked + label{
-  font-weight: 600;
-  background: $dark-grey;
-  transition: .2s;
-}
-
-.radio-group {
-  user-select: none;
-  border: solid 2px $dark-grey;
-  display: inline-block;
-  border-radius: .3rem;
-  overflow: hidden;
-}
-
-label {
-  color: $white;
-  //font-family: ;
-  font-weight: 300;
-  display: inline-block;
-  cursor: pointer;
-  padding: 4px 15px;
-  font-size: 12px;
 }
 
 .header__navigation {
@@ -130,22 +119,17 @@ label {
   }
 }
 
-@media only screen and (max-width: 1000px) and (min-width: 601px)  {
+@media only screen and (max-width: 1000px) and (min-width: 601px) {
   .dropdown-menu {
     display: block;
   }
 
   .header__title {
-    width: 60%;
+    width: 25%;
   }
 
   .header__navigation {
     display: none;
-  }
-
-  .header {
-    padding: 8px;
-    height: 75px;
   }
 
   label {
@@ -153,22 +137,17 @@ label {
   }
 }
 
-@media only screen and (max-width: 600px) and (min-width: 0px)  {
+@media only screen and (max-width: 600px) and (min-width: 0px) {
   .dropdown-menu {
     display: block;
   }
 
   .header__title {
-    width: 60%;
+    width: 25%;
   }
 
   .header__navigation {
     display: none;
-  }
-
-  .header {
-    padding: 8px;
-    height: 75px;
   }
 
   label {
@@ -178,13 +157,47 @@ label {
 
 .router-outlet {
   width: 100%;
-  height: calc(100% - 90px);
+  height: calc(100% - 100px);
 }
 
-@media only screen and (max-width: 1000px) and (min-width: 0px)  {
+@media only screen and (max-width: 1000px) and (min-width: 0px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px;
+    height: 120px;
+
+    &__title {
+      img {
+        margin: 0;
+      }
+    }
+  }
+
+  .header__settings {
+    .buttons-group {
+      [tuiButton][data-size='m'] {
+        --tui-padding: 0.5rem;
+      }
+
+      button {
+        font-size: 10px;
+      }
+    }
+  }
+
   .router-outlet {
     width: 100%;
-    height: calc(100% - 75px);
+    height: calc(100% - 120px);
     max-height: 100%;
   }
 }
+
+//@media only screen and (max-width: 430px) and (min-width: 0px) {
+//  .header__settings {
+//    .buttons-group {
+//      max-width: 375px;
+//    }
+//  }
+//}
