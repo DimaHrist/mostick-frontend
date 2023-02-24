@@ -4,6 +4,7 @@ import { TuiScrollbarComponent } from '@taiga-ui/core';
 import { takeUntil } from 'rxjs';
 import { WebsocketService } from '../../../services/websocket.service';
 import { DestroyService } from '../../../services/destroy.service';
+import { AuthService, User } from '../../../services/auth.service';
 
 export interface Message {
   event_type: string,
@@ -11,7 +12,9 @@ export interface Message {
     chat_id: number,
     created_at: string,
     id: number,
-    text: string
+    text: string,
+    quantity?: number,
+    user: User
   }
 }
 
@@ -24,6 +27,7 @@ export interface Message {
 export class ChatComponent implements AfterViewInit {
 
   public messages = this.wsService.messages$;
+  private token$ = this.authService.token$;
 
   @ViewChild(TuiScrollbarComponent, {read: ElementRef})
   private readonly scrollBar?: ElementRef<HTMLElement>;
@@ -41,13 +45,14 @@ export class ChatComponent implements AfterViewInit {
 
   constructor(
     private readonly wsService: WebsocketService,
+    private readonly authService: AuthService,
     private readonly destroy$: DestroyService
   ) {
   }
 
   public sendMessage(): void {
-    if (this.comment.value) {
-      this.wsService.sendMessage(this.comment.value);
+    if (this.comment.value && this.token$.getValue()) {
+      this.wsService.sendMessage(this.comment.value, this.token$.getValue());
       this.comment.setValue(null)
     }
   }
@@ -57,12 +62,18 @@ export class ChatComponent implements AfterViewInit {
     this.wsService.deleteMessage(id);
   }
 
+  public hideUsersMessages(): void {
+    const userId = this.authService.user$.getValue()
+    if (userId) {
+      this.wsService.hideUsersMessages(userId);
+    }
+  }
+
   public blockUser(authorId: number): void {
     console.log('BLOCK USER')
   }
 
   public ngAfterViewInit(): void {
-    this.messages.subscribe(console.log)
     this.scrollBottom();
     this.messages.pipe(takeUntil(this.destroy$))
       .subscribe(() => this.scrollBottom())

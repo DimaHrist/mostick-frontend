@@ -25,6 +25,7 @@
   &__stream {
     display: flex;
     flex-grow: 5;
+    flex-direction: column;
     height: 100%;
     padding: 2rem;
     box-sizing: border-box;
