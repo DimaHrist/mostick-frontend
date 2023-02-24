@@ -37,6 +37,17 @@
             <button
               size="s"
               tuiOption
+              (click)="hideUsersMessages(); dropdown.toggle(false)">
+              Скрыть все сообщения пользователя
+              <tui-svg
+                class="icon"
+                src="tuiIconTrash2"
+              ></tui-svg>
+            </button>
+
+            <button
+              size="s"
+              tuiOption
               (click)="blockUser(1); dropdown.toggle(false)">
               Заблокировать пользователя
               <tui-svg

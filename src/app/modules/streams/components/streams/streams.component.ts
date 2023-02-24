@@ -9,7 +9,7 @@ import { WebsocketService } from '../../../../services/websocket.service';
 export class StreamsComponent implements OnInit {
 
   constructor(
-    private readonly wsService: WebsocketService
+    public wsService: WebsocketService
   ) {
   }
 
