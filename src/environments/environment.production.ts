@@ -1,6 +1,7 @@
 export const environment = {
   name: 'production',
-  domen: 'api.mostick.lutrastickers.com/api',
+  apiUrl: 'api.mostick.lutrastickers.com/api',
   scheme: 'https',
+  production: true,
   port: '',
 };
