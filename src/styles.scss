@@ -1,7 +1,7 @@
 @import "src/styles/colors";
 
 body {
-  background-color: $black;
+  background-color: $dark-grey;
 }
 
 html,
@@ -57,5 +57,37 @@ tui-svg {
 tui-island,
 tui-input,
 tui-dialog {
-  border-radius: .3rem !important;
+  border-radius: 0 !important;
+  border: 2px solid $dark-grey;
+}
+
+.lutra-button {
+  background-color: $lutra-yellow;
+
+  [tuiWrapper][data-appearance='outline'] {
+    color: $black !important;
+  }
+}
+
+tui-island {
+  background-color: $dark-grey !important;
+}
+
+tui-island::before {
+  border: 1px solid $light-grey-1 !important;
+}
+
+[tuiWrapper] {
+  color: $light-grey-1 !important;
+}
+
+.tui-autofill input {
+    background: $light-grey-2 !important;
+  color: $dark-grey;
+}
+
+tui-dialog {
+  .t-content {
+    background: $light-grey-2 !important;
+  }
 }
