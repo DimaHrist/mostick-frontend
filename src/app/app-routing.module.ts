@@ -7,6 +7,11 @@ const routes: Routes = [
   //   loadChildren: () => import('src/app/modules/login/login.module').then((cm) => cm.LoginModule)
   // },
   {
+    path: '',
+    redirectTo: 'streams',
+    pathMatch: 'full'
+  },
+  {
     path: 'streams',
     loadChildren: () => import('src/app/modules/streams/streams.module').then((cm) => cm.StreamsModule)
   },
